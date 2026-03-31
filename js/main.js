@@ -32,6 +32,16 @@
       }
     });
 
+    // Disable hidden language form fields and remove required to prevent validation issues
+    document.querySelectorAll('.form__select[data-lang], .form__input[data-lang]').forEach(function (el) {
+      if (el.getAttribute('data-lang') === lang) {
+        el.disabled = false;
+      } else {
+        el.disabled = true;
+        el.required = false;
+      }
+    });
+
     // Update active state on lang buttons
     document.querySelectorAll('.lang-btn').forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
