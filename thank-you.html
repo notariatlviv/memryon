@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Дякуємо! | Thank You! | Dziękujemy! — Memryon</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Google Ads Conversion Tracking — paste your gtag snippet here -->
+  <!-- Example:
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-XXXXXXXXX');
+    gtag('event', 'conversion', {'send_to': 'AW-XXXXXXXXX/XXXXXXXXXXXXX'});
+  </script>
+  -->
+
+  <!-- Favicon placeholder — replace with actual favicon files -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🕊️</text></svg>" />
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome for messenger icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    .thankyou-section {
+      min-height: calc(100vh - 140px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+    }
+
+    .thankyou-card {
+      text-align: center;
+      max-width: 540px;
+      width: 100%;
+    }
+
+    .thankyou-icon {
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .thankyou-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+
+    .thankyou-text {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================================================
+       HEADER / NAVIGATION
+  ====================================================== -->
+  <header class="header" role="banner">
+    <div class="header__inner">
+
+      <!-- Logo -->
+      <a href="index.html" class="header__logo" aria-label="Memryon — на головну">
+        Memr<span>y</span>on
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="header__nav" aria-label="Головна навігація">
+        <a href="index.html#about" class="nav__link" data-lang="ua">Про нас</a>
+        <a href="index.html#about" class="nav__link" data-lang="en">About</a>
+        <a href="index.html#about" class="nav__link" data-lang="pl">O nas</a>
+
+        <a href="index.html#services" class="nav__link" data-lang="ua">Послуги</a>
+        <a href="index.html#services" class="nav__link" data-lang="en">Services</a>
+        <a href="index.html#services" class="nav__link" data-lang="pl">Usługi</a>
+
+        <a href="index.html#pricing" class="nav__link" data-lang="ua">Ціни</a>
+        <a href="index.html#pricing" class="nav__link" data-lang="en">Pricing</a>
+        <a href="index.html#pricing" class="nav__link" data-lang="pl">Cennik</a>
+
+        <a href="index.html#contact" class="nav__link" data-lang="ua">Контакти</a>
+        <a href="index.html#contact" class="nav__link" data-lang="en">Contact</a>
+        <a href="index.html#contact" class="nav__link" data-lang="pl">Kontakt</a>
+
+        <!-- Language switcher -->
+        <div class="lang-switcher" role="group" aria-label="Language / Мова / Język">
+          <button class="lang-btn" data-lang-btn="ua" aria-label="Українська мова">UA</button>
+          <button class="lang-btn" data-lang-btn="en" aria-label="English language">EN</button>
+          <button class="lang-btn" data-lang-btn="pl" aria-label="Język polski">PL</button>
+        </div>
+      </nav>
+
+      <!-- Hamburger (mobile) -->
+      <button class="hamburger" aria-label="Відкрити меню" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Menu -->
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Мобільна навігація">
+    <a href="index.html#about" class="nav__link" data-lang="ua">Про нас</a>
+    <a href="index.html#about" class="nav__link" data-lang="en">About</a>
+    <a href="index.html#about" class="nav__link" data-lang="pl">O nas</a>
+
+    <a href="index.html#services" class="nav__link" data-lang="ua">Послуги</a>
+    <a href="index.html#services" class="nav__link" data-lang="en">Services</a>
+    <a href="index.html#services" class="nav__link" data-lang="pl">Usługi</a>
+
+    <a href="index.html#pricing" class="nav__link" data-lang="ua">Ціни</a>
+    <a href="index.html#pricing" class="nav__link" data-lang="en">Pricing</a>
+    <a href="index.html#pricing" class="nav__link" data-lang="pl">Cennik</a>
+
+    <a href="index.html#contact" class="nav__link" data-lang="ua">Контакти</a>
+    <a href="index.html#contact" class="nav__link" data-lang="en">Contact</a>
+    <a href="index.html#contact" class="nav__link" data-lang="pl">Kontakt</a>
+
+    <div class="lang-switcher" role="group" aria-label="Language / Мова / Język">
+      <button class="lang-btn" data-lang-btn="ua">UA</button>
+      <button class="lang-btn" data-lang-btn="en">EN</button>
+      <button class="lang-btn" data-lang-btn="pl">PL</button>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- =====================================================
+         THANK-YOU SECTION
+    ====================================================== -->
+    <section class="thankyou-section">
+      <div class="thankyou-card">
+
+        <span class="thankyou-icon" aria-hidden="true">✅</span>
+
+        <h1 class="thankyou-title" data-lang="ua">Дякуємо за замовлення!</h1>
+        <h1 class="thankyou-title" data-lang="en">Thank you for your order!</h1>
+        <h1 class="thankyou-title" data-lang="pl">Dziękujemy za zamówienie!</h1>
+
+        <p class="thankyou-text" data-lang="ua">Ваша заявка успішно надіслана. Ми зв'яжемося з вами найближчим часом.</p>
+        <p class="thankyou-text" data-lang="en">Your request has been successfully sent. We will contact you shortly.</p>
+        <p class="thankyou-text" data-lang="pl">Twoje zgłoszenie zostało pomyślnie wysłane. Skontaktujemy się z Tobą wkrótce.</p>
+
+        <a href="index.html" class="btn btn--primary" data-lang="ua">Повернутися на головну</a>
+        <a href="index.html" class="btn btn--primary" data-lang="en">Back to homepage</a>
+        <a href="index.html" class="btn btn--primary" data-lang="pl">Powrót na stronę główną</a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+
+      <div class="footer__grid">
+
+        <!-- Brand column -->
+        <div>
+          <div class="footer__brand">Memr<span>y</span>on</div>
+          <p class="footer__tagline" data-lang="ua">Людина жива, доки про неї пам'ятають.</p>
+          <p class="footer__tagline" data-lang="en">A person lives as long as they are remembered.</p>
+          <p class="footer__tagline" data-lang="pl">Człowiek żyje, dopóki się o nim pamięta.</p>
+          <div class="footer__social">
+            <a href="viber://chat?number=%2B380939393793" class="social-link" aria-label="Viber">
+              <i class="fab fa-viber" aria-hidden="true"></i>
+            </a>
+            <a href="https://t.me/+380939393793" class="social-link" aria-label="Telegram" rel="noopener noreferrer" target="_blank">
+              <i class="fab fa-telegram" aria-hidden="true"></i>
+            </a>
+            <a href="https://wa.me/380939393793" class="social-link" aria-label="WhatsApp" rel="noopener noreferrer" target="_blank">
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Navigation column -->
+        <div>
+          <div class="footer__heading" data-lang="ua">Навігація</div>
+          <div class="footer__heading" data-lang="en">Navigation</div>
+          <div class="footer__heading" data-lang="pl">Nawigacja</div>
+          <nav class="footer__links" aria-label="Footer navigation">
+            <a href="index.html#about" data-lang="ua">Про нас</a>
+            <a href="index.html#about" data-lang="en">About</a>
+            <a href="index.html#about" data-lang="pl">O nas</a>
+            <a href="index.html#services" data-lang="ua">Послуги</a>
+            <a href="index.html#services" data-lang="en">Services</a>
+            <a href="index.html#services" data-lang="pl">Usługi</a>
+            <a href="index.html#pricing" data-lang="ua">Ціни</a>
+            <a href="index.html#pricing" data-lang="en">Pricing</a>
+            <a href="index.html#pricing" data-lang="pl">Cennik</a>
+            <a href="index.html#contact" data-lang="ua">Контакти</a>
+            <a href="index.html#contact" data-lang="en">Contact</a>
+            <a href="index.html#contact" data-lang="pl">Kontakt</a>
+          </nav>
+        </div>
+
+        <!-- Contacts column -->
+        <div>
+          <div class="footer__heading" data-lang="ua">Контакти</div>
+          <div class="footer__heading" data-lang="en">Contacts</div>
+          <div class="footer__heading" data-lang="pl">Kontakt</div>
+          <div class="footer__contacts">
+            <div class="contact-item">
+              <span class="icon" aria-hidden="true">📞</span>
+              <a href="tel:+380939393793" style="color:inherit;">+380 93 93 93 793</a>
+            </div>
+            <div class="contact-item">
+              <span class="icon" aria-hidden="true">✉️</span>
+              <a href="mailto:memryon@gmail.com" style="color:inherit;">memryon@gmail.com</a>
+            </div>
+            <div class="contact-item">
+              <a href="viber://chat?number=%2B380939393793" class="messenger-icon messenger-icon--viber" aria-label="Viber">
+                <i class="fab fa-viber" aria-hidden="true"></i>
+              </a>
+              <a href="https://t.me/+380939393793" class="messenger-icon messenger-icon--telegram" aria-label="Telegram" rel="noopener noreferrer" target="_blank">
+                <i class="fab fa-telegram" aria-hidden="true"></i>
+              </a>
+              <a href="https://wa.me/380939393793" class="messenger-icon messenger-icon--whatsapp" aria-label="WhatsApp" rel="noopener noreferrer" target="_blank">
+                <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="contact-item">
+              <span class="icon" aria-hidden="true">📍</span>
+              <span data-lang="ua">Львів, Україна</span>
+              <span data-lang="en">Lviv, Ukraine</span>
+              <span data-lang="pl">Lwów, Ukraina</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__copy">
+          <span data-lang="ua">© 2026 Memryon. Всі права захищені.</span>
+          <span data-lang="en">© 2026 Memryon. All rights reserved.</span>
+          <span data-lang="pl">© 2026 Memryon. Wszelkie prawa zastrzeżone.</span>
+        </div>
+        <div class="footer__made" data-lang="ua">Зроблено з ❤️ у Львові</div>
+        <div class="footer__made" data-lang="en">Made with ❤️ in Lviv</div>
+        <div class="footer__made" data-lang="pl">Zrobione z ❤️ we Lwowie</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>
