@@ -5,7 +5,7 @@
  *  2. Header scroll effect
  *  3. Mobile hamburger menu
  *  4. Scroll reveal animations (IntersectionObserver)
- *  5. Contact form — mailto submission
+ *  5. Contact form — FormSubmit.co submission
  *  6. Smooth anchor scroll
  */
 
@@ -139,15 +139,19 @@
   }
 
   /* =========================================================
-     5. CONTACT FORM — mailto submission
+     5. CONTACT FORM — FormSubmit.co submission
   ========================================================= */
 
   function initContactForm() {
     var form = document.getElementById('contact-form');
-    var formBody = document.getElementById('form-body');
-    var successMsg = document.getElementById('form-success');
     var errorMsg = document.getElementById('form-error');
     if (!form) return;
+
+    var errorMessages = {
+      ua: 'Будь ласка, заповніть обов\'язкові поля.',
+      en: 'Please fill in the required fields.',
+      pl: 'Proszę wypełnić wymagane pola.'
+    };
 
     function showError(msg) {
       if (errorMsg) {
@@ -164,107 +168,40 @@
       }
     }
 
-    var labels = {
-      ua: {
-        name: "Ім'я",
-        phone: 'Телефон',
-        email: 'Email',
-        cemetery: 'Кладовище',
-        package: 'Пакет',
-        burialKnown: 'Місце поховання відоме',
-        message: 'Повідомлення',
-        subject: 'Нова заявка з сайту Memryon',
-        error: 'Будь ласка, заповніть обов\'язкові поля.'
-      },
-      en: {
-        name: 'Name',
-        phone: 'Phone',
-        email: 'Email',
-        cemetery: 'Cemetery',
-        package: 'Package',
-        burialKnown: 'Burial location known',
-        message: 'Message',
-        subject: 'New Memryon Order',
-        error: 'Please fill in the required fields.'
-      },
-      pl: {
-        name: 'Imię',
-        phone: 'Telefon',
-        email: 'Email',
-        cemetery: 'Cmentarz',
-        package: 'Pakiet',
-        burialKnown: 'Miejsce pochówku znane',
-        message: 'Wiadomość',
-        subject: 'Nowe zamówienie Memryon',
-        error: 'Proszę wypełnić wymagane pola.'
-      }
+    var subjectByLang = {
+      ua: 'Нове замовлення з сайту Memryon',
+      en: 'New order from Memryon website',
+      pl: 'Nowe zamówienie ze strony Memryon'
     };
 
     form.addEventListener('submit', function (e) {
-      e.preventDefault();
       hideError();
 
       var lang = currentLang;
-      var l = labels[lang] || labels['ua'];
 
-      // Collect field values
+      // Validate required fields; prevent submission if invalid
       var nameVal = (form.querySelector('#field-name') || {}).value || '';
       var phoneVal = (form.querySelector('#field-phone') || {}).value || '';
       var emailVal = (form.querySelector('#field-email') || {}).value || '';
 
-      // Cemetery — get the visible (active lang) select
-      var cemeteryVal = '';
-      var cemeterySelects = form.querySelectorAll('select[id^="field-cemetery-"]');
-      cemeterySelects.forEach(function (sel) {
-        if (sel.getAttribute('data-lang') === lang) {
-          cemeteryVal = sel.value;
-        }
-      });
-
-      // Package — get the visible (active lang) select
-      var packageVal = '';
-      var packageSelects = form.querySelectorAll('select[id^="field-package-"]');
-      packageSelects.forEach(function (sel) {
-        if (sel.getAttribute('data-lang') === lang) {
-          packageVal = sel.value;
-        }
-      });
-
-      // Burial location known — radio buttons
-      var burialVal = '';
-      var burialRadios = form.querySelectorAll('input[name="burial_known"]');
-      burialRadios.forEach(function (radio) {
-        if (radio.checked) {
-          burialVal = radio.value;
-        }
-      });
-
-      var messageVal = (form.querySelector('#field-message') || {}).value || '';
-
-      // Validate required fields
       if (!nameVal.trim() || !phoneVal.trim() || !emailVal.trim()) {
-        showError(l.error);
+        e.preventDefault();
+        showError(errorMessages[lang] || errorMessages['ua']);
         return;
       }
 
-      // Build mailto body
-      var lines = [];
-      lines.push(l.name + ': ' + nameVal);
-      lines.push(l.phone + ': ' + phoneVal);
-      lines.push(l.email + ': ' + emailVal);
-      if (cemeteryVal) lines.push(l.cemetery + ': ' + cemeteryVal);
-      if (packageVal) lines.push(l.package + ': ' + packageVal);
-      if (burialVal) lines.push(l.burialKnown + ': ' + burialVal);
-      if (messageVal.trim()) lines.push(l.message + ': ' + messageVal);
+      // Update email subject to match the active language
+      var subjectField = form.querySelector('input[name="_subject"]');
+      if (subjectField) {
+        subjectField.value = subjectByLang[lang] || subjectByLang['ua'];
+      }
 
-      var subject = encodeURIComponent(l.subject);
-      var body = encodeURIComponent(lines.join('\n'));
-
-      window.location.href = 'mailto:memryon@gmail.com?subject=' + subject + '&body=' + body;
-
-      // Show success message
-      if (formBody) formBody.style.display = 'none';
-      if (successMsg) successMsg.classList.add('show');
+      // Disable hidden language fields to avoid duplicate form data
+      form.querySelectorAll('select[data-lang], input[data-lang]').forEach(function (el) {
+        if (el.getAttribute('data-lang') !== lang) {
+          el.disabled = true;
+        }
+      });
     });
   }
 

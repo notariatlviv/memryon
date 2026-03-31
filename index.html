@@ -737,17 +737,6 @@
 
           <div class="contact__form reveal">
 
-            <!-- Success message (hidden by default) -->
-            <div id="form-success" class="form__success" role="alert" aria-live="polite">
-              <span class="success-icon" aria-hidden="true">📧</span>
-              <h3 data-lang="ua">Відкривається поштовий клієнт!</h3>
-              <h3 data-lang="en">Your email client is opening!</h3>
-              <h3 data-lang="pl">Otwiera się klient poczty!</h3>
-              <p data-lang="ua">Завершіть відправлення у вашому поштовому клієнті. Якщо вікно не відкрилося — напишіть нам напряму на <a href="mailto:memryon@gmail.com">memryon@gmail.com</a>.</p>
-              <p data-lang="en">Please complete sending in your email client. If no window opened, write directly to <a href="mailto:memryon@gmail.com">memryon@gmail.com</a>.</p>
-              <p data-lang="pl">Wyślij wiadomość w swoim kliencie poczty. Jeśli okno się nie otworzyło, napisz bezpośrednio na <a href="mailto:memryon@gmail.com">memryon@gmail.com</a>.</p>
-            </div>
-
             <!-- Form body -->
             <div id="form-body">
               <!-- Form error message (hidden by default) -->
@@ -755,9 +744,16 @@
 
               <form
                 id="contact-form"
+                action="https://formsubmit.co/memryon@gmail.com"
+                method="POST"
                 novalidate
                 aria-label="Форма замовлення послуги"
               >
+                <!-- FormSubmit hidden fields -->
+                <input type="hidden" name="_subject" value="Нове замовлення з сайту Memryon">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://notariatlviv.github.io/memryon/thank-you.html">
+                <input type="hidden" name="_template" value="table">
 
                 <div class="form__grid">
 
